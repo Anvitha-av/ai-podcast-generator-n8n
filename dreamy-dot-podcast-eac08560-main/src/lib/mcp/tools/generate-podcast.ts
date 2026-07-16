@@ -2,7 +2,7 @@ import { defineTool } from "@lovable.dev/mcp-js";
 import { z } from "zod";
 
 const WEBHOOK_URL =
-  "https://anvitha-av23.app.n8n.cloud/webhook/881e3a4c-7b3a-4c8f-8188-52544892e360";
+"https://ai-podcast-backend-production.up.railway.app/generate";
 
 export default defineTool({
   name: "generate_podcast",

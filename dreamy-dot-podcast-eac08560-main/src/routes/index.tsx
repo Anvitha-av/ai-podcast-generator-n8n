@@ -8,7 +8,7 @@ export const Route = createFileRoute("/")({
 type GenerationState = "idle" | "loading" | "ready" | "error";
 
 const WEBHOOK_URL =
-  "https://anvitha-av23.app.n8n.cloud/webhook/881e3a4c-7b3a-4c8f-8188-52544892e360";
+"https://ai-podcast-backend-production.up.railway.app/generate";
 
 function Index() {
   const [topic, setTopic] = useState("");
