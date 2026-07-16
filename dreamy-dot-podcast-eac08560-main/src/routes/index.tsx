@@ -12,6 +12,7 @@ const WEBHOOK_URL =
 
 function Index() {
   const [topic, setTopic] = useState("");
+  const [language, setLanguage] = useState("English");
   const [state, setState] = useState<GenerationState>("idle");
   const [audioUrl, setAudioUrl] = useState<string | null>(null);
 
@@ -23,7 +24,10 @@ function Index() {
       const res = await fetch(WEBHOOK_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ text: topic }),
+        body: JSON.stringify({
+          text: topic,
+          language: language,
+          }),
       });
       if (!res.ok) throw new Error("Request failed");
       const data = await res.json();
@@ -65,6 +69,15 @@ function Index() {
             placeholder="Type podcast topic here..."
             className="w-full rounded-2xl border border-input bg-card px-5 py-4 text-foreground shadow-sm outline-none ring-ring ring-offset-2 ring-offset-background transition-all placeholder:text-muted-foreground focus:border-ring focus:ring-2"
           />
+          <select
+            value={language}
+            onChange={(e) => setLanguage(e.target.value)}
+            className="w-full rounded-2xl border border-input bg-card px-5 py-4 text-foreground"
+          >
+            <option value="English">English</option>
+            <option value="Hindi">Hindi</option>
+            <option value="Kannada">Kannada</option>
+          </select>
 
           <button
             type="button"
